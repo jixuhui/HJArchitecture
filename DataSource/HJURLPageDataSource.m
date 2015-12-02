@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 sina. All rights reserved.
 //
 
-#import "HJURLPageDataSource.h"s
+#import "HJURLPageDataSource.h"
 
 @implementation HJURLPageDataSource
 {
@@ -113,6 +113,39 @@ Class object_getClass(id object);
 - (id)getFailBlock
 {
     return NULL;
+}
+
+- (void)handleSuccessWithResponse:(id)responseObject
+{
+    self.loading = NO;
+    
+    if(_pageIndex == 1){
+        [[self dataObjects] removeAllObjects];
+    }
+    
+    [self loadResultsData:responseObject];
+    
+    Class currentClass = object_getClass(self.delegate);
+    if (currentClass == _originalClass) {
+        if(self.delegate&&[self.delegate respondsToSelector:@selector(HJDataSourceDidLoaded:)]){
+            [self.delegate HJDataSourceDidLoaded:self];
+        }
+    }else{
+        self.delegate = self;
+    }
+    
+    self.loaded = YES;
+}
+
+- (void)handleFailureWithError:(NSError *)error
+{
+    self.loading = NO;
+    if([self.delegate respondsToSelector:@selector(HJDataSource:didFitalError:)]){
+        [self.delegate HJDataSource:self didFitalError:error];
+    }
+    if([[self dataObjects] count]){
+        self.loaded = YES;
+    }
 }
 
 @end
