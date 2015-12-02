@@ -6,8 +6,7 @@
 //  Copyright (c) 2015年 sina. All rights reserved.
 //
 
-#import "HJURLPageDataSource.h"
-#import "HJURLService.h"
+#import "HJURLPageDataSource.h"s
 
 @implementation HJURLPageDataSource
 {
@@ -24,19 +23,27 @@
 Class object_getClass(id object);
 
 -(id) init{
+    
     if((self = [super init])){
+        
         self.pageIndex = 1;
         self.pageSize = 10;
         self.pageIndexKey = @"page";
         self.pageSizeKey = @"pagesize";
+        
     }
+    
     return self;
+    
 }
 
 - (void)setDelegate:(id)delegate
 {
+    
     [super setDelegate:delegate];
+    
     _originalClass = object_getClass(delegate);
+    
 }
 
 -(void) reloadData{
@@ -53,40 +60,8 @@ Class object_getClass(id object);
     
     [self.otherParameters setValue:[NSString stringWithFormat:@"%d",self.pageSize] forKey:self.pageSizeKey];
     
-    __weak __typeof(self)weakSelf = self;
+    [self handleTask];
     
-    [[HJURLService shareService] handleTask:self success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
-        
-        strongSelf.loading = NO;
-        
-        if(_pageIndex == 1){
-            [[strongSelf dataObjects] removeAllObjects];
-        }
-        
-        [strongSelf loadResultsData:responseObject];
-        
-        Class currentClass = object_getClass(self.delegate);
-        if (currentClass == _originalClass) {
-            if(strongSelf.delegate&&[strongSelf.delegate respondsToSelector:@selector(HJDataSourceDidLoaded:)]){
-                [strongSelf.delegate HJDataSourceDidLoaded:strongSelf];
-            }
-        }else{
-            strongSelf.delegate = strongSelf;
-        }
-        
-        strongSelf.loaded = YES;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
-        
-        strongSelf.loading = NO;
-        if([strongSelf.delegate respondsToSelector:@selector(HJDataSource:didFitalError:)]){
-            [strongSelf.delegate HJDataSource:strongSelf didFitalError:error];
-        }
-        if([[strongSelf dataObjects] count]){
-            strongSelf.loaded = YES;
-        }
-    }];
 }
 
 -(void) loadMoreData{
@@ -102,42 +77,8 @@ Class object_getClass(id object);
     
     [self.otherParameters setValue:[NSString stringWithFormat:@"%d",self.pageSize] forKey:self.pageSizeKey];
     
-    __weak __typeof(self)weakSelf = self;
+    [self handleTask];
     
-    [[HJURLService shareService] handleTask:self success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
-        
-        strongSelf.loading = NO;
-        
-        if(_pageIndex == 1){
-            [[strongSelf dataObjects] removeAllObjects];
-        }
-        
-        [strongSelf loadResultsData:responseObject];
-        
-        Class currentClass = object_getClass(self.delegate);
-        if (currentClass == _originalClass) {
-            if(strongSelf.delegate&&[strongSelf.delegate respondsToSelector:@selector(HJDataSourceDidLoaded:)]){
-                [strongSelf.delegate HJDataSourceDidLoaded:strongSelf];
-            }
-        }else{
-            strongSelf.delegate = strongSelf;
-        }
-        
-        strongSelf.loaded = YES;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
-        
-        strongSelf.loading = NO;
-        if([strongSelf.delegate respondsToSelector:@selector(HJDataSource:didFitalError:)]){
-            [strongSelf.delegate HJDataSource:strongSelf didFitalError:error];
-        }
-        if([[strongSelf dataObjects] count]){
-            strongSelf.loaded = YES;
-        }
-        
-        strongSelf.responseStatusCode = [[operation response] statusCode];
-    }];
 }
 
 -(void) loadResultsData:(id)resultsData{
@@ -152,8 +93,26 @@ Class object_getClass(id object);
 
 -(void)cancel
 {
+    
     [super cancel];
+    
     [[HJURLService shareService] cancelTask:self];
+    
+}
+
+- (void)handleTask
+{
+    [[HJURLService shareService] handleTask:self success:[self getSuccessBlock] failure:[self getFailBlock]];
+}
+
+- (id)getSuccessBlock
+{
+    return NULL;
+}
+
+- (id)getFailBlock
+{
+    return NULL;
 }
 
 @end
