@@ -1,6 +1,6 @@
 #/bin/sh
 
-#eg. sh build.sh v1.0.0 v1.0.1 "I can do anything!"
+#eg. sh build.sh 1.0.0 1.0.1 "I can do anything!"
 
 if [[ $1  &&  $2 ]]
 then
@@ -18,21 +18,6 @@ echo "invalid tag count"
 exit
 
 fi
-
-#tag_reg='^(v){1}([0-9]{1}.){2}[0-9]{1}$'
-
-#if [[ "$old_tag_name" =~ $tag_reg && "$new_tag_name" =~ $tag_reg ]]
-#then
-#
-#echo "valid tag name"
-#
-#else
-#
-#echo "$old_tag_name or $new_tag_name invalid tag name! you need input like this,eg. 1.1.1"
-#
-#exit
-#
-#fi
 
 if [ "$3" ]
 then
