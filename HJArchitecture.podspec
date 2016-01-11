@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "HJArchitecture"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "Base FMWK to make beautiful apps！"
 
   s.description  = <<-DESC
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = "7.0"
 
-  s.source       = { :git => "https://github.com/jixuhui/HJArchitecture.git", :tag => "0.0.7" }
+  s.source       = { :git => "https://github.com/jixuhui/HJArchitecture.git", :tag => "0.0.8" }
 
   s.requires_arc = true
   
@@ -42,7 +42,7 @@ Pod::Spec.new do |s|
   ser.source_files = 'HJArchitecture','Service/**/*.{h,m}'
   ser.dependency 'HJArchitecture/Task'
   ser.dependency 'HJArchitecture/Common'
-  ser.dependency 'AFNetworking'
+  ser.dependency 'AFNetworking' 
   end
 
   s.subspec 'DataSource' do |ds|

@@ -58,6 +58,8 @@ git tag $new_tag_name
 
 git push origin $new_tag_name
 
+sudo xcode-select -switch /Applications/Xcode.app/
+
 echo "finish push new tag"
 
 #lib lint
