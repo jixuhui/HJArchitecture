@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "HJArchitecture"
-  s.version      = "0.0.9"
+  s.version      = "0.0.6"
   s.summary      = "Base FMWK to make beautiful apps！"
 
   s.description  = <<-DESC
