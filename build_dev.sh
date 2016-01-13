@@ -24,7 +24,7 @@ git add -A
 
 git commit -am "$summary"
 
-git push
+git push origin develop
 
 echo "finish push new code"
 
