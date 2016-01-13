@@ -1,6 +1,6 @@
-!#/bin/sh
+#/bin/sh
 
-#eg. sh build.sh 1.0.0 1.0.1 "I can do anything!"
+#param eg. sh build.sh 1.0.0 1.0.1 "I can do anything!"
 
 if [[ $1  &&  $2 ]]
 then
@@ -30,17 +30,17 @@ summary='update something'
 
 fi
 
-#change podspec version
+#param change podspec version
 
 spec_filename='HJArchitecture.podspec'
 
 sed -i '' "s/$old_tag_name/$new_tag_name/g" $spec_filename
 
-#push code
+#param push code
 
 echo "start push new code..."
 
-#ignorecase false
+#parm ignorecase false
 
 git config core.ignorecase false
 
@@ -56,15 +56,13 @@ echo "start git new tag..."
 
 git tag $new_tag_name
 
-git push origin develop $new_tag_name
+git push origin $new_tag_name
 
 sudo xcode-select -switch /Applications/Xcode.app/
 
 echo "finish push new tag"
 
-#lib lint
-
-pod lib lint
+#pod lib lint
 
 echo "start push $spec_filename ..."
 
