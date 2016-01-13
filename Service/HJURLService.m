@@ -41,6 +41,9 @@
         task.requestType = @"get";
     }
     
+    //为了支持text/cvs格式，否则请求会报错
+    self.operationManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
     if ([[task.requestType uppercaseString] isEqualToString:@"GET"]) {
         operation = [self.operationManager GET:task.urlString parameters:[task otherParameters] success:success failure:failure];
     }else if ([[task.requestType uppercaseString] isEqualToString:@"POST"]) {
@@ -60,6 +63,9 @@
     if (!task.requestType) {
         task.requestType = @"get";
     }
+    
+    //为了支持text/cvs格式，否则请求会报错
+    self.sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     if ([[task.requestType uppercaseString] isEqualToString:@"GET"]) {
         sessionDataTask = [self.sessionManager GET:task.urlString parameters:[task otherParameters] success:success failure:failure];
