@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "HJArchitecture"
 
-  s.version      = "0.0.9"
+  s.version      = "0.0.1"
 
   s.summary      = "Base FMWK to make beautiful apps！"
 
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = "7.0"
 
-  s.source       = { :git => "https://github.com/jixuhui/HJArchitecture.git", :branch => "develop" }
+  s.source       = { :git => "https://github.com/jixuhui/HJArchitecture.git", :tag => "0.0.1" }
 
   s.requires_arc = true
   

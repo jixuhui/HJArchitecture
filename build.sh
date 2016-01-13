@@ -1,4 +1,4 @@
-#/bin/sh
+!#/bin/sh
 
 #eg. sh build.sh 1.0.0 1.0.1 "I can do anything!"
 
@@ -56,7 +56,7 @@ echo "start git new tag..."
 
 git tag $new_tag_name
 
-git push origin $new_tag_name
+git push origin develop $new_tag_name
 
 sudo xcode-select -switch /Applications/Xcode.app/
 
