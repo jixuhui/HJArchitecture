@@ -46,9 +46,9 @@ git checkout develop
 
 git branch
 
-git fetch
+git fetch origin develop
 
-git merge
+git merge develop
 
 git config core.ignorecase false
 
