@@ -42,13 +42,13 @@ echo "start push new code..."
 
 #ignorecase false
 
-git checkout develop
+git checkout master
 
 git branch
 
-git fetch origin develop
+git fetch origin master
 
-git merge develop
+git merge master
 
 git config core.ignorecase false
 
