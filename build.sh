@@ -78,3 +78,8 @@ echo "start push $spec_filename ..."
 
 pod repo push HJSpecs $spec_filename
 
+git checkout develop
+
+git branch
+
+echo "change to develop branch!"
