@@ -42,6 +42,14 @@ echo "start push new code..."
 
 #ignorecase false
 
+git checkout develop
+
+git branch
+
+git fetch
+
+git merge
+
 git config core.ignorecase false
 
 git add -A
