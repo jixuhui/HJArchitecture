@@ -21,6 +21,8 @@
     
     return ^(NSURLSessionDataTask *operation, id responseObject) {
         
+        NSLog(@"request.../n%@",operation.originalRequest);
+        
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         
         [strongSelf handleSuccessWithResponse:responseObject];
@@ -33,6 +35,8 @@
     __weak __typeof(self)weakSelf = self;
     
     return ^(NSURLSessionDataTask *operation, NSError *error) {
+        
+        NSLog(@"request.../n%@,error.../n%@",operation.originalRequest,error.description);
         
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         

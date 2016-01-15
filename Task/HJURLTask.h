@@ -16,6 +16,7 @@
 @property(nonatomic,copy) NSString *requestType;
 @property(nonatomic,strong) NSMutableDictionary *otherParameters;
 @property(nonatomic,strong) id operation;
+@property(nonatomic,strong) NSString *responseDataType;
 
 @end
 

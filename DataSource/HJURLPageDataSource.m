@@ -19,6 +19,7 @@
 @synthesize pageIndexKey = _pageIndexKey;
 @synthesize pageSizeKey = _pageSizeKey;
 @synthesize otherParameters = _otherParameters;
+@synthesize responseDataType = _responseDataType;
 
 Class object_getClass(id object);
 
@@ -26,7 +27,7 @@ Class object_getClass(id object);
     
     if((self = [super init])){
         
-        self.pageIndex = 1;
+        self.pageIndex = 0;
         self.pageSize = 10;
         self.pageIndexKey = @"page";
         self.pageSizeKey = @"pagesize";

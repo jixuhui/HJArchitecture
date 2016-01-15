@@ -15,5 +15,6 @@
 @synthesize otherParameters = _otherParameters;
 @synthesize pageIndexKey = _pageIndexKey;
 @synthesize pageSizeKey = _pageSizeKey;
+@synthesize responseDataType = _responseDataType;
 
 @end
