@@ -41,17 +41,9 @@
 #define CHECK_VALID_ARRAY(__aArray)                 (__aArray && [__aArray isKindOfClass:[NSArray class]] && [__aArray count])
 #define CHECK_VALID_DICTIONARY(__aDictionary)       (__aDictionary && [__aDictionary isKindOfClass:[NSDictionary class]] && [__aDictionary count])
 
-//----------------------------ABOUT MIAOCHE----------------------------
-//URL
-#define SNEP_MiaoChe_URL_BrandWall @"http://2.miaocheapp.sinaapp.com/Sina_Index/discontPrice"
-#define SNEP_MiaoChe_URL_BrandList @"http://2.miaocheapp.sinaapp.com/Sina_Auto/seriesList"
-#define SNEP_MiaoChe_URL_CarTypeList @"http://2.miaocheapp.sinaapp.com/Sina_Auto/specList"
-#define SNEP_MiaoChe_URL_AreaList @"http://2.miaocheapp.sinaapp.com/Sina_Area/areaList"
-#define SNEP_MiaoChe_URL_Getaddressbylngb @"http://2.miaocheapp.sinaapp.com/Sina_Area/getaddressbylngb"
-#define SNEP_MiaoChe_URL_SearchList @"http://2.miaocheapp.sinaapp.com/Sina_Auto/searchList"
-//Keyword
-#define SNEP_MiaoChe_Keyword_Area @"SNEP_MiaoChe_Keyword_Area"
-#define SNEP_MiaoChe_Keyword_CityChanged @"SNEP_MiaoChe_Keyword_CityChanged"
+//----------------------------ABOUT STOCK SCHOOL----------------------------
+
+#define STOCK_SCHOOL_URL_DAYLIST @"http://client-api.dingdone.com/U22IBA7X57/160946/listcontents?"
 
 //----------------------------OTHER----------------------------
 

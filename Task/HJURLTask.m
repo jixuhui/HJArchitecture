@@ -16,6 +16,7 @@
 @synthesize requestType = _requestType;
 @synthesize operation = _operation;
 @synthesize otherParameters = _otherParameters;
+@synthesize responseDataType = _responseDataType;
 
 #pragma mark - coding protocol
 
@@ -31,6 +32,7 @@
     self.urlString = [aDecoder decodeObjectForKey:@"urlString"];
     self.otherParameters = [aDecoder decodeObjectForKey:@"otherParameters"];
     self.operation = [aDecoder decodeObjectForKey:@"operation"];
+    self.responseDataType = [aDecoder decodeObjectForKey:@"responseDataType"];
     
     return self;
 }
@@ -42,6 +44,7 @@
     [aCoder encodeObject:self.urlString forKey:@"urlString"];
     [aCoder encodeObject:self.otherParameters forKey:@"otherParameters"];
     [aCoder encodeObject:self.operation forKey:@"operation"];
+    [aCoder encodeObject:self.responseDataType forKey:@"responseDataType"];
 }
 
 #pragma mark - copying protocol
@@ -55,6 +58,7 @@
     task.urlString = self.urlString;
     task.otherParameters = self.otherParameters;
     task.operation = self.operation;
+    task.responseDataType = self.responseDataType;
     
     return task;
 }

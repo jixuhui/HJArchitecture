@@ -15,4 +15,5 @@
 @synthesize urlString = _urlString;
 @synthesize type = _type;
 @synthesize otherParameters = _otherParameters;
+@synthesize responseDataType = _responseDataType;
 @end
