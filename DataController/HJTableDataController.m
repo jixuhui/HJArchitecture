@@ -136,7 +136,7 @@
     cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     if (cell == nil) {
-        if (CHECK_VALID_STRING(self.cellClassName)) {
+        if (CHECK_VALID_NSSTRING(self.cellClassName)) {
             Class cellClass = NSClassFromString(self.cellClassName);
             cell = [[cellClass alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         }else{

@@ -1,4 +1,4 @@
-!#/bin/sh
+#/bin/sh
 
 #eg. sh build.sh 1.0.0 1.0.1 "I can do anything!"
 

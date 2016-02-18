@@ -36,7 +36,7 @@
 #define kScreenHeight					[UIScreen mainScreen].bounds.size.height
 
 //----------------------------VALID CHECKING----------------------------
-#define CHECK_VALID_STRING(__string)               (__string && [__string isKindOfClass:[NSString class]] && [__string length])
+#define CHECK_VALID_NSSTRING(__string)               (__string && [__string isKindOfClass:[NSString class]] && [__string length])
 #define CHECK_VALID_NUMBER(__aNumber)               (__aNumber && [__aNumber isKindOfClass:[NSNumber class]])
 #define CHECK_VALID_ARRAY(__aArray)                 (__aArray && [__aArray isKindOfClass:[NSArray class]] && [__aArray count])
 #define CHECK_VALID_DICTIONARY(__aDictionary)       (__aDictionary && [__aDictionary isKindOfClass:[NSDictionary class]] && [__aDictionary count])

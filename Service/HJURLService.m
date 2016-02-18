@@ -41,7 +41,7 @@
         task.requestType = @"get";
     }
     
-    if (CHECK_VALID_STRING(task.responseDataType)&&[task.responseDataType isEqualToString:@"Serial"]) {
+    if (CHECK_VALID_NSSTRING(task.responseDataType)&&[task.responseDataType isEqualToString:@"Serial"]) {
         //为了支持text/cvs格式，否则请求会报错
         self.operationManager.responseSerializer = [AFHTTPResponseSerializer serializer];
     }
@@ -66,7 +66,7 @@
         task.requestType = @"get";
     }
     
-    if (CHECK_VALID_STRING(task.responseDataType)&&[task.responseDataType isEqualToString:@"Serial"]) {
+    if (CHECK_VALID_NSSTRING(task.responseDataType)&&[task.responseDataType isEqualToString:@"Serial"]) {
         //为了支持text/cvs格式，否则请求会报错
         self.sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
     }
