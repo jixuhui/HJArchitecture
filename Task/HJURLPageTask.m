@@ -11,6 +11,7 @@
 @implementation HJURLPageTask
 @synthesize pageIndex = _pageIndex;
 @synthesize pageSize = _pageSize;
+@synthesize firstPageIndex = _firstPageIndex;
 @synthesize hasMoreData = _hasMoreData;
 @synthesize otherParameters = _otherParameters;
 @synthesize pageIndexKey = _pageIndexKey;

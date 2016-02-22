@@ -15,6 +15,7 @@
 
 @synthesize pageIndex = _pageIndex;
 @synthesize pageSize = _pageSize;
+@synthesize firstPageIndex = _firstPageIndex;
 @synthesize hasMoreData = _hasMoreData;
 @synthesize pageIndexKey = _pageIndexKey;
 @synthesize pageSizeKey = _pageSizeKey;
@@ -27,8 +28,9 @@ Class object_getClass(id object);
     
     if((self = [super init])){
         
-        self.pageIndex = 0;
         self.pageSize = 10;
+        self.firstPageIndex = 0;
+        self.pageIndex = self.firstPageIndex;
         self.pageIndexKey = @"page";
         self.pageSizeKey = @"pagesize";
         
@@ -51,9 +53,7 @@ Class object_getClass(id object);
     
     [super reloadData];
     
-    if(self.pageIndex !=1){
-        self.pageIndex = 1;
-    }
+    self.pageIndex = self.firstPageIndex;
     
     [[HJURLService shareService] cancelTask:self];
     
@@ -120,7 +120,7 @@ Class object_getClass(id object);
 {
     self.loading = NO;
     
-    if(_pageIndex == 1){
+    if(_pageIndex == self.firstPageIndex){
         [[self dataObjects] removeAllObjects];
     }
     

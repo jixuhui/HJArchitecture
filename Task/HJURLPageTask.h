@@ -11,6 +11,7 @@
 @protocol IHJURLPageTask <IHJURLTask>
 @property(nonatomic,assign) int pageIndex;
 @property(nonatomic,assign) int pageSize;
+@property(nonatomic,assign) int firstPageIndex;
 @property(nonatomic,assign) BOOL hasMoreData;
 @property(nonatomic,strong) NSString *pageIndexKey;
 @property(nonatomic,strong) NSString *pageSizeKey;
