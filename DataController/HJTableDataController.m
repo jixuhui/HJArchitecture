@@ -179,7 +179,7 @@
     
     [super HJDataSourceDidLoaded:dataSource];
         
-    if (_dataSource.pageIndex <= 1)
+    if (_dataSource.pageIndex <= _dataSource.firstPageIndex)
     {
         if ([_dataSource.dataObjects count] == 0)
         {
@@ -199,7 +199,7 @@
     
     if(_dataSource.responseStatusCode != 200)
     {
-        if (_dataSource.pageIndex <= 1)
+        if (_dataSource.pageIndex <= _dataSource.firstPageIndex)
         {
             if ([_dataSource.dataObjects count] > 0)
             {
@@ -221,7 +221,7 @@
         }
         
     }else{
-        if (_dataSource.pageIndex <= 1)
+        if (_dataSource.pageIndex <= _dataSource.firstPageIndex)
         {
             if ([_dataSource.dataObjects count] > 0)
             {
@@ -254,7 +254,7 @@
         return ;
     }
     
-    if(_dataSource.pageIndex == 1)
+    if(_dataSource.pageIndex == _dataSource.firstPageIndex)
     {
         if(_dataSource.dataObjects.count == _dataSource.pageSize)
         {
@@ -284,7 +284,7 @@
 -(void)startLoading
 {
     if(![(id)_dataSource respondsToSelector:@selector(pageIndex)]
-       || [(id)_dataSource pageIndex] == 1){
+       || [(id)_dataSource pageIndex] == _dataSource.firstPageIndex){
         self.loading = YES;
     }else{
         self.loading = NO;
